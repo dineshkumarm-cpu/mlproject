@@ -8,9 +8,18 @@ os.makedirs(logs_path,exist_ok=True)
 
 LOG_FILE_PATH=os.path.join(logs_path,LOG_FILE)
 
-logging.basicCOnfig(
+logging.basicConfig(
     filename=LOG_FILE_PATH,
     format="[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s",
     level=logging.INFO,
 
 )
+
+logger = logging.getLogger(__name__)
+
+if __name__ == "__main__":
+    logger.info("Logger test started")
+    logger.warning("This is a warning message")
+    logger.error("This is an error message")
+
+    print(f"Log file created at: {LOG_FILE_PATH}")
